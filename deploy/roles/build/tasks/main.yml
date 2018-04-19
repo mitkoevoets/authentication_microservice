@@ -1,0 +1,25 @@
+---
+- debug:
+    msg:
+       - "Branch {{ git_branch }}"
+
+#- include: prepare.yml
+#- include: prepare-flourish.yml
+#  when: build_project == 'flourish3'
+
+#- include: prepare-corp.yml
+#  when: build_project == 'corp'
+
+- include_vars: "vars/test.yml"
+  when: git_branch == 'test'
+
+- include_vars: "vars/qa.yml"
+  when: git_branch == 'qa'
+
+- include_vars: "vars/prod.yml"
+  when: git_branch == 'master'
+
+- include_vars: "vars/local.yml"
+  when: git_branch == 'local'
+
+- include: build.yml

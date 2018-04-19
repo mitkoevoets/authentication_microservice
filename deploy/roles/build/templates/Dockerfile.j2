@@ -1,0 +1,44 @@
+# pull image docker registry
+FROM {{DOCKER_REG_HOST}}/docker-base-images/php7:latest
+
+# RUN apk add --no-cache \
+#        supervisor \
+#        vim
+
+RUN echo "{{TMNL_GIT_IP_ADDRESS}} gl.var.var.nl" >> /etc/hosts
+RUN ssh-keyscan -t rsa {{TMNL_GIT_IP_ADDRESS}} >> ~/.ssh/known_hosts
+
+RUN cp -r /root/.ssh /home/www-data/.ssh
+RUN chown -R www-data:www-data /home/www-data/.ssh
+USER www-data
+
+ADD --chown=www-data:www-data package.json /var/www/
+RUN yarn install
+
+ADD --chown=www-data:www-data . /var/www/
+ADD --chown=www-data:www-data .env /var/www
+
+RUN chmod +x /var/www/artisan
+
+#RUN chown -R www-data:www-data /var/www
+
+## yep, quick and dirty, replace packages url's
+RUN cat composer.lock | sed s/gl\.var\.var\.nl/{{TMNL_GIT_IP_ADDRESS}}/g > composer.lock.new && cp composer.lock.new composer.lock
+
+RUN composer install --ignore-platform-reqs --no-scripts
+
+#RUN ["php", "artisan", "key:generate"]
+#RUN ["php", "artisan", "jwt:secret"]
+
+#RUN ["php", "artisan", "session:table"]
+#RUN ["php", "artisan", "migrate", "--force"]
+
+USER root
+
+ENV MYSQL_DB_PASSWORD {{MYSQL_DB_PASSWORD}}
+ENV MYSQL_DB_IP {{MYSQL_DB_IP}}
+ENV MYSQL_DB_PORT {{MYSQL_DB_PORT}}
+ENV MYSQL_DB_NAME {{MYSQL_DB_NAME}}
+ENV MYSQL_DB_USERNAME {{MYSQL_DB_USERNAME}}
+
+EXPOSE 50000

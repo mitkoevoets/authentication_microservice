@@ -1,0 +1,30 @@
+---
+MYSQL_DB_PASSWORD: 497g3fui4vgdsEHS93
+MYSQL_DB_IP: mysql
+MYSQL_DB_PORT: 3306
+MYSQL_DB_NAME: var_platform_dev
+MYSQL_DB_USERNAME: root
+
+JWT_SECRET: uZfeRQWkT4lhRMc5u73th6KrIskOdlZS
+JWT_TTL: 43200
+
+API_PREFIX: api
+API_DEBUG: false
+
+ACTIVATE_ROUTE: http://portal.test.var.var.localhost/auth/activate
+PASSWORD_RESET_ROUTE: http://portal.var.var.localhost/auth/password-reset
+
+SMTP_API_URL: https://api.smtp2go.com/v3
+SMTP_API_KEY: api-D0DBAB76B31211E7900FF23C91C88F4E
+
+APP_URL: http://auth.var.var.localhost
+
+DOCKER_REG_HOST: "gl.var.var.nl:4567"
+
+TMNL_GIT_IP_ADDRESS: 80.79.204.66
+
+SENTRY_DSN: https://public:secret@sentry.example.com/1
+
+CROSSROADS_URL: http://crossroads:50000
+APP_DEBUG: true
+APP_ENV: local

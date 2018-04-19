@@ -1,0 +1,22 @@
+---
+MYSQL_DB_PASSWORD: n9HMrpRDDWr[/sLY9MruBhkw[YKRAf$q
+MYSQL_DB_IP: 172.24.12.10
+MYSQL_DB_PORT: 3306
+MYSQL_DB_NAME: var_platform_auth
+MYSQL_DB_USERNAME: auth-service-user
+
+JWT_SECRET: uZfeRQWkT4lhRMc5u73th6KrIskOdlZS
+JWT_TTL: 43200
+
+API_PREFIX: api
+API_DEBUG: false
+
+APP_URL: https://auth.var.var.nl
+
+SENTRY_DSN: https://b54aea8769014516ba38f65d916aa346:730d5d4866db41949115bcfa5a06995d@sentry.io/268674
+
+CROSSROADS_URL: http://crossroads-svc:50000
+
+TMNL_GIT_IP_ADDRESS: 172.24.12.11
+APP_DEBUG: false
+APP_ENV: prod

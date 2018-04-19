@@ -1,0 +1,22 @@
+---
+MYSQL_DB_PASSWORD: GNdmUeE8qmvg=&s,DAQ7^eja
+MYSQL_DB_IP: 188.226.143.198
+MYSQL_DB_PORT: 3306
+MYSQL_DB_NAME: var_platform_test
+MYSQL_DB_USERNAME: testuser
+
+JWT_SECRET: uZfeRQWkT4lhRMc5u73th6KrIskOdlZS
+JWT_TTL: 43200
+
+API_PREFIX: api
+API_DEBUG: false
+
+APP_URL: https://auth.test.var.var.nl
+
+SENTRY_DSN: https://public:secret@sentry.example.com/1
+
+CROSSROADS_URL: http://crossroads-svc-test:50000
+
+TMNL_GIT_IP_ADDRESS: 172.24.12.11
+APP_DEBUG: true
+APP_ENV: test

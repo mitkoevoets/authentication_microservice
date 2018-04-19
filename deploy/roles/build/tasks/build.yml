@@ -1,0 +1,13 @@
+---
+- name: Generate Dockerfile
+  template:
+    src: "templates/Dockerfile.j2"
+    dest: "../Dockerfile"
+  tags: ["build"]
+
+- name: Generate env file
+  template:
+    src: "templates/.env.j2"
+    dest: "../.env"
+  tags: ["build"]
+
